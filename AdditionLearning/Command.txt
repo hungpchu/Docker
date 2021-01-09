@@ -1,0 +1,17 @@
+docker --help
+1. find all the commands
+
+docker version
+
+
+docker login [OPTIONS] [SERVER]
+1. by default, pulling from the Docker Hub
+
+docker image ls [OPTIONS] [REPOSITORY] [:TAG]
+1. list all your docker image
+
+docker image rm [OPTIONS] IMAGE [IMAGE...]
+1. rm images on the desktop
+
+docker container run [OPTION] IMAGE [COMMAND] [ARG...]
+1. start the container

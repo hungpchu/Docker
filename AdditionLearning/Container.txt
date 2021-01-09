@@ -1,0 +1,28 @@
+Container Image
+1. lightweight, stand alone executable package of software  
+    - that includes everything needed to run an application, including bare bone OS
+2. is a read-only template
+3. is immutable, once built then can not be changed
+    - If you need to change then have to build a new container image
+Container
+1. running instance of the container image
+
+Benefits of container
+1. consistent
+    - can not be changed and will behave the same in any environments
+2. Portability
+    - can run anywhere where you have the container runtime environment installed (Docker)
+3. Versioned
+    - container image is built using a Docker file
+    - Docker file
+        - is a text file which can be checked in your code repository
+4. Secure
+    - when openning, all ports are closed
+
+Virtual Machine
+1. have a single OS and only 1 application
+
+Container
+1. Share the host OS and kernel
+2. Can run dozen of containers on a single host with dozen of application running on that host
+3. A single container should only perform a single function

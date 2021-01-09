@@ -1,0 +1,39 @@
+Dockerfile
+1. Basic
+    - must begin with a "From" instruction
+        - specify which docker image to use
+        - Use OpenJDK for java apps
+        - avoid using OpenJDK 8 as base image since it not obey container memory constraint
+    - "Label" instruction
+        - adds metadata to an image
+        - an image can have more than 1 Label
+        - define the maintainer label is the best practice and required in our environment
+        - use a group email address for the maintainer label
+    - "Env" instruction
+        - set environment variables
+        - the environment variables set using ENV will persist when a container is run from the resulting image
+    - "HealthCheck"
+        - tells Docker how to test a container to check that it is still working
+        - this can detect cases like a web server stuck in an infinite loop and unable to handle new connections even though the server process is still running
+        - To debug failing probes, any output text that the command writes to stdout or stderr will be stored in the health status and can be queried with docker inspect
+    - "WORKDIR"
+        - Sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions that follow it
+        - If the directory does not exist, it will be created
+    - "COPY"
+        - copies files or directories from local directory and adds them to the filesystem of the resulting image
+    - "ADD"
+        - downloads from URL or extracts tar directly from source to destination folder
+    - "RUN"
+        - allows you to execute commands during the building of your container image
+        - each run command will create a new image layer so group multiple commands into a single RUN
+    - "EXPOSE"
+        - opens the port on the running container
+        - inform docker that the container listens on specific networks ports at runtime
+        - can specify whether the port listens on TCP or UDP
+        - does not actually publish the port, use -p with docker run to publish the port
+    - "ENTRYPOINT"
+        - Defines the executable or command that runs by default
+        - can override the ENTRYPOINT instruction using the docker run --entrypoint flag
+        - EXAMPLE
+            - ENTRYPOINT ["java", "-cp", "-jar", "app/my-app.jar"]
+            - the command "java -cp -jar app/my-app.jar" will be run in the container when it starts

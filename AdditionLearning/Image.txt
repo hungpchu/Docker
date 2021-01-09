@@ -1,0 +1,16 @@
+Images
+1. comprises of read-only layer
+    - Docker is responsible for 
+        - stacking these layers
+        - providing a single unified view
+2. main different comparing to a container
+    - top writable layer called copy and write layer
+        - when creating a new container, docker 
+            - adds a thin writable layer
+        - all changes made to running container
+            - such as creating new files, modifying existing files
+            - are written to the copy and write layer
+        - when deleting the container
+            - the copy and write layer is also deleted
+3. if need to make change to a container
+    - make the change to the image at build time in the docker file or application

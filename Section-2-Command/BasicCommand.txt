@@ -1,0 +1,27 @@
+
+docker run command
+1. start a container from an image
+2. For instance
+    docker run mongodb (image)
+        - if the image is not in the local then image will be pulled from the docker hub down to local
+3. will be run in the attached mode by default
+    - see the output of the web server (if it is the image of web app) in the console
+4. include -d to have the detach mode
+    - this will run the docker container in the background mode
+    - have the prompt immediately
+
+docker ps command
+1. list all running containers
+
+docker ps -a command
+1. list all running, stop or exit containers
+
+docker stop <ContainerID_or_ContainerName> command
+1. stop cotainer
+
+docker rm <ContainerID_or_ContainerName> command
+1. remove a container
+2. print the name or id back then good
+
+docker pull <containerName> command
+1. pull the image but not running the container

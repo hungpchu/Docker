@@ -1,0 +1,23 @@
+Docker Overview
+
+1. Why do you need Docker?
+    - MERN application framework
+        - MongoDB
+        - ExpressJS
+        - ReactJS
+        - NodeJS
+    - For example:
+        - Have to install dependency for MERN stack application from end to end
+            -> have to ensure the compatible with the OS version
+            -> if the version is updated overtime then have to make sure the overall underlying infrastructure works as expect
+    - compatible/dependency
+    - long set up time
+    - different dev/test/prod environments
+
+2. What can Docker do?
+    - Have each component in MERN running in seperate container with its own dependencies and libraries
+        - all on the same VM and OS but within seperate environments or container
+        -> Containerize applications 
+    - Can start building the docker configuration once and 
+    - all developers can get started with simple Docker run command
+        -> Run each service with its own dependencies in seperate containers

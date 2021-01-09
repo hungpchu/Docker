@@ -1,0 +1,9 @@
+Operating System
+1. consists 2 things
+    - OS Kernel
+        1. is responsible for interacting with the underlying hardware
+        2. remains the same which is Linux for (UBUNTU, FEDORA, SUSE)
+            - Linux Kernel will be common between all Linux OS
+    - set of software
+        1. make the different between (UBUNTU, FEDORA, SUSE)
+        2. may consist of a different user interface, drivers, compilers, file managers and developer tools

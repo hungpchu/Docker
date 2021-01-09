@@ -1,0 +1,50 @@
+Container
+1. completely isolated environment
+2. can have their own processes/services/network interfaces like VM
+3. All containers share the same OS kernel
+    - Explain
+        1. For instance having a system with an Ubuntu OS with Docker install on it
+        2. Docker can run any falovor of OS on top of it as long as they are all based on the same kernel in this case is Linux
+            - Docker can run container based on other distribution like Debian
+        3. Docker utilize the underlying kernel (Linux) of the Docker host (Ubuntu in this case)
+    - What if there is an OS not share the same kernel with Linux kernel?
+        1. can not run a Window based container on a docker host with Linux as kernel since not compatible kernel
+        2. require a Docker on the Window server
+4. Unlike VM, not meant to host an operating system
+5. meant to 
+    - run a specific task or processes like hosting an intance of a web server
+    - once the task is done then the container exits
+    - the container only lives as long as the process inside it alive
+
+Docker 
+1. not mean to virtualize and run different operating system, kernel on the same hardware
+2. mainly to package, containerilize applications, ship them and run them any where any time you want 
+
+VM vs Container
+VM                            
+1. application + library + dependencies + OS
+2. is heavier in GB size
+3. take minute to boots up
+4. has complete isolation from each other since
+    - VMs not relying on underlying OS or kernel
+    - can run different type of applications built on different OSes like Linux or Window
+
+Container
+1. application + library + dependencies
+2. is lightweight with MB size
+    -> boots up faster with second
+3. has less isolation as 
+    - more resources are shared the container like kernel 
+
+Container and Virtual Machine
+1. many application (which is inside a docker container) running on many docker host (which can be based on Linux or Window Kernel)
+2. see the containers (applications) provisioned on Virtual docker hosts
+3. use 
+    - the Virtualization to easily provision/ decommission docker hosts
+    - the docker host to easily provision applications and quickly scale applications as required
+4. How can we provision virtual machine for many containers?
+    - Make available in a public docker repository called dockerhub/ docker store
+    - Have the image (program) of operating system, database, tools
+    - Run "docker run <image_name>" command will create running instance (process) from the image
+        1. For example: run "docker run nodeJS" will create a process or instance of NodeJS container on the docker host
+

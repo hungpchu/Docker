@@ -1,0 +1,13 @@
+Tradition
+1. Developers
+    - have the application
+    - hand over to the dev-op team to deploy and manage in the production environment by
+        - providing a set of instruction (like config info)
+
+Docker File
+1. contains config guide and instruction
+2. is used to create an image for their application/container
+    - this image can run on any docker host and same way every where
+    - dev-op team can use image to deploy the application since
+        - the image was already working
+
