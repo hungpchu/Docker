@@ -1,14 +1,20 @@
 
-docker run command
+docker run <imageName> command
 1. start a container from an image
 2. For instance
     docker run mongodb (image)
         - if the image is not in the local then image will be pulled from the docker hub down to local
 3. will be run in the attached mode by default
     - see the output of the web server (if it is the image of web app) in the console
-4. include -d to have the detach mode
+4. docker run -d <imageName> command to have the detach mode
     - this will run the docker container in the background mode
     - have the prompt immediately
+5. docker run -it <imageName> bash command
+    -open the bash of container
+6. docker rm -f $(docker ps -a) command
+    - remove all the existing container
+7. docker run --name <newContainerName> <imageName>
+    - run and set the <newContainerName> to the name Hung wants
 
 docker ps command
 1. list all running containers
@@ -25,3 +31,11 @@ docker rm <ContainerID_or_ContainerName> command
 
 docker pull <containerName> command
 1. pull the image but not running the container
+
+docker rmi <imageName>
+1. remove the image
+2. docker rmi $(docker images) command
+    - remove all the existing images
+
+docker exec <containerID> <command>
+1. will run the <command> inside the container bash
