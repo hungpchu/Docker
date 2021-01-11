@@ -1,0 +1,12 @@
+Docker Compose
+1. Scenario
+    - if we need to set up a complex application running multiple services
+2. With Docker Compose, we can
+    - create a configuration file in Yaml format called docker-compose.yml and
+    - put together different services and the option specific to those to running them in this file and 
+    - run docker-compose up to run the whole application stack
+    - but only applicable to running containers on a single Docker host 
+
+docker-compose up
+1. bring up the whole application
+2. assume the images are built

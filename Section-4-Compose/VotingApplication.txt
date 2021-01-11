@@ -1,0 +1,10 @@
+Voting Application
+1. provides an interface for user to vote and other interfaces to show the result
+2. is built with Python + redis + .NET + PostgreSQL + NodeJS
+
+Run each container
+1. docker run -d --name=redis redis
+2. docker run -d --name=db
+3. docker run -d --name=vote -p 5000:80 voting-app
+4. docker run -d --name=result -p 5001:80 result-app
+5. docker run -d --name=worker worker

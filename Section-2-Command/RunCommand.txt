@@ -43,3 +43,6 @@ docker inspect <containerName>/<containerID> command
 
 docker logs <containerName>/<containerID> command
 1. see the logs
+
+docker run --link <containerName>:<containerNameToLink> 
+1. run and link container together
