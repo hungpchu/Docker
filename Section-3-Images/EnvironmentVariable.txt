@@ -1,0 +1,43 @@
+Environment Variable
+1. docker run -e APP_COLOR=blue simple-webapp-color
+    - tag -e will have help set the Environment Variable APP_COLOR to be blue
+
+Inspect Environment Variable
+1. docker inspect <containerName>
+    - Under "Env"
+
+CMD in dockerfile
+1. stands for command
+2. defines the program that will be run within the container when it starts
+    - bash as the value will be
+        - a shell that listens for input from a terminal if it cannot find a terminal then it will exit
+3. the command line parameter will get replaced entirely
+
+From the dockerfile.txt in this folder
+1. When running the ubuntu container, docker
+    - create a container from the Ubuntu image and
+    - launches the bash program
+2. By default, docker not attach a terminal to a container when it runs
+    - bash program not find the terminal and
+    - it exits since the process that was started when the container was created
+    - finish the container exits the process as well
+3. How to specify a different command to star the container?
+    1. Append the command to the docker run command
+        - will override the default command specify in the image
+        - For instance: docker run ubuntu sleep 5
+            - how to make the above command perminent?
+                - Include the instuction below in the dockerfile
+                       FROM ubuntu
+                       CMD sleep 5/ ["sleep","5"]
+
+ENTRYPOINT
+1. is the command instruction
+2. the argument input or the command line parameter will be appended to the entry point
+3. can use --entrypoint to override the value of default ENTRYPOINT
+
+USING BOTH ENTRYPOINT AND CMD
+1. FROM Ubuntu
+    ENTRYPOINT ["sleep"]
+    CMD ["5"]
+2. sleep 5 will be default in case no command line argument input
+3. in case there is command line argument then sleep <argumentInput>

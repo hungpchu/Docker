@@ -1,0 +1,28 @@
+# DockerFile
+# 1. is a text file written in a specific format
+# 2. Everything on the left is the instruction
+#    - FROM, RUN, etc
+# 3. Everything on the right is the argument
+
+# FROM: 
+# 1. Define what the base OS should be for the container
+# 2. start from a base OS or another image
+FROM ubuntu:16.04
+
+# RUN: 
+# 1. to run a particular command on those base image
+# 2. install all dependencies
+RUN apt-get update && apt-get install -y python python-pip
+
+RUN pip install flask flask-mysql
+
+# COPY
+# 1. Copy from the local system onto the docker images
+COPY . /opt/source-code
+
+# ENTRYPOINT 
+# 1. ENTRYPOINT allows us to specify a command that will be run
+#   when the image is run as the container
+ENTRYPOINT FLASK_APP=/opt/source-code.app.py flask run
+
+# Run the dockerfile in simple-web-app for example

@@ -1,0 +1,17 @@
+Images
+1. Every docker image must be based off another image
+    - either an OS or another image that was created
+2. From the dockerfile, docker builds the image in the layer architectures
+    - each line of instruction creates a new layer in the Docker image with just the change from the previous layer
+    - For example in the dockerfile in this folder
+        - Layer 1: base ubuntu layer
+        - Layer 2: changes in apt packages
+        - Layer 3: changes in pip packages
+        - Layer 4: Copy the source code over
+        - Update entrypoint with flask command
+
+3. docker login command
+    - login with docker credentials for pushing image to docker hub
+
+4. docker push <dockerUserName/imageName> command
+    - push the image to the dockerhub

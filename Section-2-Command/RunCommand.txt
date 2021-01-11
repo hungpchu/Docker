@@ -1,0 +1,45 @@
+Run Command
+1. docker run <imageName>:<versionNumber>
+    - run the image with the specific version
+2. does not listen to the standard input
+    - include -i (interactive mode) after run to specific the value
+3. have -it after the run for the terminal plus interactive mode
+
+Port Mapping
+1. have a web application in a docker container on docker host
+    - docker host/engine = underlying host where Docker is installed
+    - when we run the web then we can see the server is running
+    - But how the user access our application
+        - if the application listens on port 5000 then what IP will I use for web browser?
+            1. Use the IP of the container
+                - Every docker container has the IP assigned but it is internal IP and can only accessed within the docker host -> external user can not access it
+            2. Use the IP of the docker host
+                - For working then have to map the port inside of the docker container to a free port on the docker host
+                - can map port 5000 of the docker container to the free port 80 of the docker host
+                - Usage: docker run -p 80:5000 webapp
+                - can run multiple instance of your application and map them to different ports on the docker host
+                - can not map the same port on the docker host more than 1
+
+Volume mapping
+1. How data is persisted in the docker container
+2. For instance 
+    - running docker run mysql
+    - when databases and tables are created
+        - the data files are stored in location /var/lib/mysql inside the docker container
+        - the docker container has its own isolated file system and any changes to any files happens within the container
+        - let's say you wanna dump many datas in the database, what happens if deleting the mysql container and remove it?
+            - all the data and container are gone
+            - if you want to persist the data then 
+                - map a directory outside the container on the docker host to the directory inside the container like /opt/datadir for instance to the internal directory /var/lib/mysql in the docker container
+                - Map command: docker run -v /opt/datadir:/var/lib/mysql mysql
+                    - will mount the external directory to a folder inside the docker container
+                    - all the data will be 
+                        - stored in the external volume
+                        - remained even if you delete the docker container
+
+docker inspect <containerName>/<containerID> command
+1. will inspect the container
+2. see more details about container
+
+docker logs <containerName>/<containerID> command
+1. see the logs
