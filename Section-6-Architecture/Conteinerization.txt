@@ -1,0 +1,11 @@
+Containerization
+1. Docker uses namespace to isolate workplace like
+    - process id, network, mount, Unix Timesharing
+
+Namespace - PID
+1. When the Linux system boots up, it start with running many process
+2. When creating a container (like a child system) within the current system, the child system needs to think that it 
+    - is an independent system on its own
+    - has its own set of processes originating from a root process with a process ID of 1
+    - process runninng in the container is the process running in the underlying host
+3. all processes are running on the same host but seperated into their own container with different PID base on container

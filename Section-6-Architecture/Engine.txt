@@ -1,0 +1,11 @@
+Docker Engine
+1. referes to a host with Docker installed on it
+2. When installing Docker on a Linux host, we install 3 different components
+    - Docker CLI (top stack)
+        1. the command line interface
+        2. Use the REST API to interact with docker Deamon
+    - REST API (middle stack)
+        1. API interface that the programs use to talk to the Deamon and provide instruction
+    - Docker Deamon (bottom stack)
+        1. is the background process the manages Docker objects like
+            - images containers, volumes and networks

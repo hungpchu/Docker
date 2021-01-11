@@ -1,0 +1,44 @@
+Docker Network
+1. When installing Docker, it creates 3 networks
+    - Bridge
+        1. is the default network that the container get attached tos
+        2. come with: docker run ubuntu
+        3. is a private internal network created by Docker on the host
+        4. All the containers attached to this network by default
+            - each will get an internal IP address in the range 172.17
+            - each can access each other using this internal IP
+    - None
+        1. can come with: docker run ubuntu --network=none
+        2. container will
+            - not attach to any network or 
+            - not have access to the external network or other containers
+            - run on the isolated network
+    - Host
+        1. can come with: docker run ubuntu --network=host
+        2. dont have to do port mapping and 
+        3. brings about the any network isolation between the docker host and docker container
+        4. web container will use the host network
+        5. but can not run multiple web containers on the same host on the same port as the port is now common to all containers in the host network
+
+User-defined network
+1. create our own internal network using the command
+    - docker network create \
+        --driver bridge \
+        --subnet 182.18.0.0/16 \
+        custom-isolated-network
+
+docker network ls command
+1. to list all networks
+
+Inspect network
+1. docker inspect <imageID>
+2. under "Network"
+
+Embedded DNS
+1. All containers in the docker host can resolve each other with the name of the container
+2. Docker has the built in DNS server that helps the container to resolve each other using the container name
+3. built in DNS server always run at address 127.0.0.11
+
+How can Docker isolate containers within the Docker host?
+1. Docker uses network namespace that create a seperate namespace for each container
+2. Then use virtual Ethernet pairs to connect containers together

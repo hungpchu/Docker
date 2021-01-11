@@ -1,0 +1,26 @@
+Registry
+1. is where the docker images are stored
+2. central repository of all Docker images
+3. the name is docker.io
+
+image
+1. hchu/nginx
+    - hchu is the account name
+    - nginx is the image name
+
+Private Registry
+1. can only be accessed using a set of credentials
+2. From Docker, to run a container using an image from a priavte registry
+    1. log into the private registry using the docker log in command
+        - For example with private-registry.io
+            1. docker login private-registry.io
+            2. docker run private-registry.io/apps/internal-app
+3. always log in before pulling or pushing in the private registry
+
+Deploy Private Registry
+1. docker registry 
+    - is application
+    - available as an image
+    - the name of the image 
+        - is registry
+        - exposes the API on port 5000

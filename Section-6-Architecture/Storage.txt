@@ -1,0 +1,33 @@
+How Docker stores data on the local file system
+
+File system
+1. When installing Docker on a system, it
+    - creates a folder structure at /var/lib/docker
+    - you will have multiple folders under it called
+        - aufs, containers, image
+2. How does Docker store the file/container?
+    - When docker build image, it build these in a layered architecture
+    - can take the already built layer from the cache to build the new image
+        - is faster and save disk space
+
+Volume mouting
+1. mount a directory from the volume directory
+docker run -v data_volume:/var/lib/mysql mysql
+2. For example:
+    1. build and run a containers out of mysql image
+    2. create a folder data_volume under volume folder under /var/lib/docker and
+    3. store all the date there
+    4. When the container is gone then the data is still persisted
+
+
+docker volume create data_volume
+1. just create a folder data_volume under volume folder under /var/lib/docker
+
+Bind mount
+1. mount a directory from any location on the docker host
+2. docker run -v <absolutePathToLocation>:/var/lib/mysql mysql
+    - can be written like this:
+        docker run --mount type=bind,source=<absolutePathToLocation>,target=/var/lib/mysql mysql
+
+Storage Driver
+1. Used by Docker to enable layered architecture
