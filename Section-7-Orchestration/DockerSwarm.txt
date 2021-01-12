@@ -1,0 +1,22 @@
+Docker Swarm Overview
+1. With this, you can combine multiple Docker machines together into a single cluster Docker
+2. take care distributing your services or application instances into separate hosts for high availability and load balancing across different systems and hardware
+
+
+Set up Docker Swarm
+1. must have hosts or multiple hosts with Docker installed on them
+2. must designate one host to be the manager or master (swarm manager) and other as slave or workers
+3. Once done then run docker swarm init command on the swarm manager
+    - this will init the swarm manager
+    - provide the command to run on the worker
+    - run the command on the worker to join the manager
+    - after joining the swarm, the workers are also referred to as nodes and 
+    - you are now ready to create services and deploy them on the swarm cluster
+4. Now we can create a swarm cluster, how can we utilize cluster to run multiple instances?
+    1. 1st way: run the docker run command on each worker node
+        - not idealistic
+    2. 2nd way: use Docker Swarm Orchestration
+        - the key component is the docker service
+        - docker services are 1 or more instances of a single application that run across the nodes in the swarm cluster
+            - we can create a docker service to run multiple instances of my web server application across worker nodes in my swarm cluster
+            - run docker service create --replicas=3 <imageName> command on the manager node will create 3 running instances of <imageName>

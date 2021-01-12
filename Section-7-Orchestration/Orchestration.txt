@@ -1,0 +1,22 @@
+Docker Orchestration
+1. With Docker, we can run a single instance of the application on the single docker host
+2. What if the number of users increases and we want to increase the number of intances?
+    - If manually do run command then you have to provision
+    - what if the docker host crashed and the health is not good?
+        - container Orchestration is the solution
+
+Container Orchestration
+1. consists of 
+    - a set of tools and script that can
+        - help host containers in a production environment
+    - multiple docker hosts that can host containers
+        - even if 1 host fail then the application is still accessible through the other container
+2. can deploy many of instances of application using a single command
+    - used for Docker Swarm
+3. multiple container solution orchestration today like
+    - docker swarm
+        - easy to start but
+        - lack some of advanced auto scaling feature
+    - kubernetes
+        - is supported on all public cloud services
+    - Mesos

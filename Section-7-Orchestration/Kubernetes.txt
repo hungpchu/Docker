@@ -1,0 +1,53 @@
+1. With Docker, we can run a single instance of an application using the docker CLI by running docker run command
+
+Kubernetes Overview
+1. With Kubernetes, using the Kubernetes CLI (kube control), you can
+    - run many instances of the same application with a single command
+        - run kubectl run --replicas=1000 <imageName>
+    - Kubernetes can configured to scale up and down based on user load
+2. uses Dokcer hosts to host applications in the form of Docker containers
+
+Kubernetes architecture
+1. is cluster consisting a set of nodes
+    - Node is 
+        - a physical or virtual machine installed Kubernetes inside
+        - a worker machine where container will be launched by Kubernetes
+    - What if the node fails?
+        - we need more than 1 node
+    - Cluster is
+        - a set of nodes grouped together
+    - who is responsible for managing this cluster?
+        - The Master
+            - is 
+                - a node with the Kubernetes control plane components installed
+                - responsible for the actual orchestration of containers on the worker nodes
+            - watches over the nodes in the cluster
+
+Installing Kubernetes
+1. will install these components
+    - API Server
+        1. acts as the front end for Kubernetes
+        2. CLI talks to the API server to interact with the component cluster
+    - etcd
+        1. is a distributed reliable key value store
+        2. store all data used to manage the cluster
+        3. responsible for implementing logs within the cluster to ensure
+            - there are no conflict between the masters
+    - kubelet
+        1. is the agent that 
+            - runs on each node in the cluster
+            - makes sure that the containers are running on the nodes as expected
+    - Container runtime
+        1. run containers
+    - Controller
+        1. responsible for noticing and responding when 
+            - nodes/containers/endpoint close down
+            - bring up new containers in the case 
+    - Scheduler
+        1. distributing works or containers across multiple nodes
+        2. looks for newly created containers and 
+        3. assign them to nodes
+
+kubectl
+1. is the Kubernetes CLI
+2. used to deploy and manages applications on the Kubernetes cluster
